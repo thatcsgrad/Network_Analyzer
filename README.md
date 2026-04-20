@@ -1,4 +1,4 @@
-# VPN Network Analyzer 🔍
+## VPN Network Analyzer 🔍
 
 A Python tool to measure and compare network behaviour with and without a VPN, exploring how Privacy-Enhancing Technologies affect performance, privacy, and DNS behaviour.
 
