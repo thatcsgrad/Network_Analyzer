@@ -1,35 +1,37 @@
-# VPN Network Analyzer 🔍🛡️
+# VPN Network Analyzer 🔍
 
-A Python tool to measure and compare network behaviour **with and without a VPN**, exploring how Privacy-Enhancing Technologies affect performance, privacy, and DNS behaviour.
+A Python tool to measure and compare network behaviour with and without a VPN, exploring how Privacy-Enhancing Technologies affect performance, privacy, and DNS behaviour.
 
 Built as a hands-on mini-project while learning network security fundamentals.
 
----
 
 ## What It Measures
 
-| Metric | What It Tells Us |
-|---|---|
-| **Public IP & Location** | Whether the VPN successfully masks your real identity |
-| **ICMP Ping Latency** | Performance overhead introduced by VPN tunnelling |
-| **Jitter** | Stability of the connection under VPN |
-| **Packet Loss** | Reliability impact |
-| **DNS Resolution** | Whether DNS queries resolve differently under VPN |
-| **DNS Leak Test** | Whether your real ISP is still visible via DNS queries |
-| **HTTP Response Time** | End-to-end real-world speed impact |
+**Public IP & Location:** Whether the VPN successfully masks your real identity
 
----
+**ICMP Ping Latency:** Performance overhead introduced by VPN tunnelling
 
-## Why This Matters
+**Jitter:** Stability of the connection under VPN
 
-VPNs are one of the most commonly deployed **Privacy-Enhancing Technologies (PETs)**. While they are designed to provide anonymity by masking IP addresses and encrypting traffic, their impact on real-world performance is often poorly understood.
+**Packet Loss:** Reliability impact
+
+**DNS Resolution:** Whether DNS queries resolve differently under VPN
+
+**DNS Leak Test:** Whether your real ISP is still visible via DNS queries
+
+**HTTP Response Time:** End-to-end real-world speed impact
+
+
+## How It's Related
+
+VPNs are one of the most commonly deployed Privacy-Enhancing Technologies (PETs).
+While they are designed to provide anonymity by masking IP addresses and encrypting traffic, their impact on real-world performance is often poorly understood.
 
 This project is motivated by research questions like:
 - Can VPNs maintain strong privacy guarantees without significantly degrading performance?
 - Do DNS leaks undermine VPN privacy even when traffic is encrypted?
 - How does routing through a VPN server affect latency for bandwidth-sensitive applications?
 
----
 
 ## Setup
 
@@ -49,12 +51,11 @@ python network_analyzer_miniproject.py
 ```
 
 The tool will run through two phases:
-1. **Phase 1** — run with VPN OFF (baseline measurement)
-2. **Phase 2** — turn VPN ON, then run again
+1. Phase 1 — run with VPN OFF (baseline measurement)
+2. Phase 2 — turn VPN ON, then run again
 
 It will then print a side-by-side comparison and save full results to `results.json`.
 
----
 
 ## Sample Output
 
@@ -100,49 +101,44 @@ ISP/Org                      Jio                          NordVPN
   ✓ No DNS leak detected with VPN active.
 ```
 
----
 
-## Key Findings (Example)
+## Some Interpretations 
 
-- VPN adds significant latency overhead (~77ms in testing) due to encryption and traffic rerouting
+- VPN adds significant latency overhead (~77ms in testing (sample value)) due to encryption and traffic rerouting
 - IP masking works correctly - public IP changes to VPN server location
 - DNS queries are routed through VPN, preventing ISP-level DNS leaks
 - For latency-sensitive applications (video calls, gaming), this overhead could impact usability
 
----
 
-## Concepts Covered
+## Concepts I Learnt
 
-- **VPN tunnelling** and how it routes traffic
-- **DNS leak detection** — a common VPN privacy weakness
-- **ICMP (ping)** for measuring network round-trip time
-- **Jitter** — variation in latency, important for real-time applications
-- **Privacy-Enhancing Technologies (PETs)** — tools designed to reduce identifiable network footprint
+- VPN tunnelling and how it routes traffic
+- DNS leak detection: a common VPN privacy weakness
+- ICMP (ping) for measuring network round-trip time
+- Jitter: variation in latency, important for real-time applications
+- Privacy-Enhancing Technologies (PETs): tools designed to reduce identifiable network footprint
 
----
 
 ## Relevance to Research
 
 This project was built as an introduction to the measurement methodologies used in network privacy research, specifically:
 
-- **Active measurement tools** for evaluating VPN performance
-- **Traffic analysis** to understand what information leaks through PETs
-- Understanding trade-offs between **privacy** and **performance** in VPN deployments
+- Active measurement tools for evaluating VPN performance
+- Traffic analysis to understand what information leaks through PETs
+- Understanding trade-offs between privacy and performance in VPN deployments
 
 It relates directly to research on:
 - Performance Evaluation of Privacy-Enhancing Networks
 - Next-Generation VPN Architectures
 - Discovery of Privacy-Enhancing Infrastructure
 
----
 
-## Future Improvements
+## Future Improvements I Might Try
 
-- [ ] Integrate Scapy for packet-level traffic capture and analysis
-- [ ] Add Wireshark `.pcap` export for deeper analysis
-- [ ] Test across multiple VPN protocols (OpenVPN vs WireGuard vs SSTP)
+- Integrate Scapy for packet-level traffic capture and analysis
+- Add Wireshark `.pcap` export for deeper analysis
+- Test across multiple VPN protocols (OpenVPN vs WireGuard vs SSTP)
 
----
 
 ## Author
 
